@@ -39,14 +39,14 @@ public class accountImageServlet extends HttpServlet {
 			// 讀取瀏覽器傳送來的主鍵
 			String id = request.getParameter("id");
 			// 讀取瀏覽器傳送來的type，以分辨要處理哪個表格
-			AccountDao accountService = new AccountDaoImpl();
+			AccountDao accountDao = new AccountDaoImpl();
 			int nId = 0;
 			try {
 				nId = Integer.parseInt(id);
 			} catch(NumberFormatException ex) {
 				;
 			}
-			Account bean = accountService.select(nId); ///findById
+			Account bean = accountDao.select(nId); ///findById
 			if (bean != null) {
 				blob = bean.getImage();
 				System.out.println("圖片"+nId+" 大小 : "+blob.length());

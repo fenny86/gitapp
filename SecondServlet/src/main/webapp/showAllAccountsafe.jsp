@@ -30,7 +30,7 @@
 <body>
 <%--     <jsp:include page="/fragment/topMVC.jsp" /> --%>
     <header>
-        <h1 class="fa-solid fa-users">查詢所有會員</h1>
+        <h1 class="fa-solid fa-users">查詢所有會員</h1><a style="position: absolute; right: 0;" class="fa-solid fa-user-plus" href=${request.getContextPath()}removeAccountControllersafe?id=${bean.id}>新增</a></td>
     </header>
     <table id="table_id" class="display">
         <thead>
@@ -51,7 +51,7 @@
                 <tr>
                     <td>${bean.id}</td>
                     <td>${bean.account}</td>
-                    <td>${bean.password}</td>
+                    <td><input type="password" name="密碼欄位名稱"  style="border:0px;background:rgba(0, 0, 0, 0);text-align:center;"  value="${bean.password}" disabled="disabled"></td>
                     <td><img height='100' width='80' src="<c:url value='/controller/toImage?id=${bean.id}' />">
                     </td>
 <!--                     <td><a class="fa-regular fa-trash-can" href=${request.getContextPath()}removeAccountControllersafe?id=${bean.id}>刪除</a></td> -->

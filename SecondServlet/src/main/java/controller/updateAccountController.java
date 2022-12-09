@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import bean.Account;
 import dao.AccountDao;
@@ -26,9 +27,11 @@ public class updateAccountController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id=Integer.valueOf(req.getParameter("id"));
 		String account=req.getParameter("account");
-			String password=req.getParameter("password");
-			InputStream in = req.getPart("photo").getInputStream();
-		long size = req.getPart("photo").getSize();
+		String password=req.getParameter("password");
+		Part photo = req.getPart("photo");
+		InputStream in = photo.getInputStream();
+		long size = photo.getSize();
+		String type = photo.getContentType();
 		try {
 			Blob image = GlobalService.fileToBlob(in, size);
 //			Account accounts=new Account(id,account,password,image);
@@ -36,10 +39,11 @@ public class updateAccountController extends HttpServlet {
 			AccountService accountService=new AccountServiceImpl();
 			AccountDao accountDao = new AccountDaoImpl();
 			Account accounts = accountDao.select(id);
-			System.out.println(req.getPart("photo"));
-			if (req.getPart("photo").getSize()!=0) {
+	
+			if (size!=0 && type.equals("image/jpeg")) {
 				accounts.setImage(image);
 			}
+			
 			accounts.setAccount(account);
 			accounts.setPassword(password);
 			accounts.setId(id);

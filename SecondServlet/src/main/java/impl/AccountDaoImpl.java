@@ -129,7 +129,6 @@ QueryRunner queryRunner=new QueryRunner(ConnectionSMMS.createMSSQLConnection());
 						ac.setAccount(rs.getString("account"));
 						ac.setPassword(rs.getString("password"));
 						ac.setImage(rs.getBlob("img"));
-
 			     }
 			     return ac;
 			    }

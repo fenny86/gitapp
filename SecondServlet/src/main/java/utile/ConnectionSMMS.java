@@ -14,7 +14,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 public class  ConnectionSMMS {
 	public static HikariDataSource createMSSQLConnection() {
-		HikariConfig config = new HikariConfig("C:\\Users\\User\\Desktop\\test\\SecondServlet\\src\\main\\java\\jdbc.properties");
+		HikariConfig config = new HikariConfig("C:\\Users\\User\\Documents\\git\\SecondServlet\\src\\main\\java\\jdbc.properties");
 		HikariDataSource ds = new HikariDataSource(config);
 		return ds;
 	}

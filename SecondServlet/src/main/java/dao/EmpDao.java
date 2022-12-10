@@ -11,5 +11,7 @@ public interface EmpDao {
     public int delete(int id); 
     
     public int update(Emp emp); 
-        
+    
+    
+
 }

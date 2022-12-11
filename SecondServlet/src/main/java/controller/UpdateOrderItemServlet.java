@@ -54,8 +54,9 @@ public class UpdateOrderItemServlet extends HttpServlet {
 			String newQtyStr = request.getParameter("newQty");
 			int newQty = Integer.parseInt(newQtyStr.trim());
 			sc.modifyQty(classNumber, newQty);   // 修改某項商品的數項
+			System.out.println(newQty);
 			 log.info("修改某項商品的數項=" + newQty);
-	        RequestDispatcher rd = request.getRequestDispatcher("class/ShowShoppingCartContent.jsp");
+	        RequestDispatcher rd = request.getRequestDispatcher("/class/ShowShoppingCartContent.jsp");
 		    rd.forward(request, response);
 		    return;
 		}

@@ -32,7 +32,7 @@ public class AbortServlet extends HttpServlet {
 		if (cart != null) {
 			//由session物件中移除ShoppingCart物件
 			log.info("放棄購物之Controller: 移除位於Session物件內的購物車物件");
-			session.removeAttribute("ShoppingCart");
+			session.removeAttribute("shoppingCart");
 		}
 		response.sendRedirect(response.encodeRedirectURL (request.getContextPath() + "/index.html"));
 		return;

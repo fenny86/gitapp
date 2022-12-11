@@ -32,7 +32,7 @@ public class EmpmanagerLoginController extends HttpServlet {
 			
 			resp.sendRedirect(req.getContextPath()+"/showAllEmpControllersafe");
 		}else {
-			resp.sendRedirect(req.getContextPath()+"/login.jsp");
+			resp.sendRedirect(req.getContextPath()+"/login.html");
 		}
 			
 		}

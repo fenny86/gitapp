@@ -16,35 +16,21 @@ public class OrderBean {
 	int memberId;
 	String customerEmail;
 	int customerPhone;
-	String customerPhoneStr;
 	String orderStatus;
 	Date orderDate;
-	String orderDateStr;
 	Double orderPrice;
 	Set<OrderItemBean> items = new LinkedHashSet<>();
 
-	public String getCustomerPhoneStr() {
-		return customerPhoneStr;
-	}
-	public void setCustomerPhoneStr(String customerPhoneStr) {
-		this.customerPhoneStr = customerPhoneStr;
-	}
-	public OrderBean(int orderNumber, int memberId, String customerEmail,String customerPhoneStr,
+	public OrderBean(int orderNumber, int memberId, String customerEmail, int customerPhone,
 			String orderStatus, Date orderDate, Double orderPrice) {
 		super();
 		this.orderNumber = orderNumber;
 		this.memberId = memberId;
 		this.customerEmail = customerEmail;
-		this.customerPhoneStr = customerPhoneStr;
+		this.customerPhone = customerPhone;
 		this.orderStatus = orderStatus;
 		this.orderDate = orderDate;
 		this.orderPrice = orderPrice;
-	}
-	public String getOrderDateStr() {
-		return orderDateStr;
-	}
-	public void setOrderDateStr(String orderDateStr) {
-		this.orderDateStr = orderDateStr;
 	}
 	public OrderBean() {
 		super();

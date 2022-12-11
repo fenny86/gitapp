@@ -15,7 +15,7 @@ public class CreateTable {
 				+ "(orderNumber int NOT NULL IDENTITY Primary Key, "
 				+ " memberId	    int, " 
 				+ " customerEmail    	varchar(50), " 
-				+ " customerPhone    	varchar(50), " 
+				+ " customerPhone    	int, " 
 				+ " orderStatus    	varchar(50), " 
 				+ " orderDate    	datetime2, " 
 				+ " orderPrice    	Money, " 

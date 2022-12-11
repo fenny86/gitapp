@@ -61,6 +61,38 @@ public class CreateTable {
 		}
 	
 	}
+      
+      public static void creatAccountTable() {
+  		
+		String sql="Create TABLE account "
+				+ "( "
+				+ " id 			int, "
+				+ " account 	varchar(20), " 
+				+ " password 	varchar(20), " 
+				+ " img 		varbinary(max), " 
+				+ " )";
+		try {
+			queryRunner.update(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+	}
+      
+      public static void creatAccountManagerTable() {
+    		
+		String sql="Create TABLE accountmanager "
+				+ "( "
+				+ " username 	varchar(20), " 
+				+ " password 	varchar(20), " 
+				+ " )";
+		try {
+			queryRunner.update(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+	}
 	
 	
 	public static void main(String args[]) {
@@ -68,6 +100,8 @@ public class CreateTable {
 		creatClassTables();
 		creatMemberTable();
 		creatOrderTable();
+		creatAccountManagerTable();
+		creatAccountTable();
 	}
 }
 

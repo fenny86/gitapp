@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
 import bean.EmpManager;
-=======
-import bean.AccountManager;
->>>>>>> 9855bd012dd89a1b9d623bfb6815b1c469433a1b
 @WebFilter(value = "*.safe")
 public class CheckFilter implements Filter{
 

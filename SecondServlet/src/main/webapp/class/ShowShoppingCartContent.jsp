@@ -10,8 +10,6 @@ response.setHeader("Cache-Control", "no-store"); //Directs caches not to store t
 response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale" 
 response.setHeader("Pragma", "no-cache"); //HTTP 1.0 backward compatibility
 %>
-<!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -31,21 +29,36 @@ table, h1 {
 <script type="text/javascript">
 function confirmDelete(n) {
 	if (confirm("確定刪除此項商品 ? ") ) {
-		window.location.href="<c:url value='/UpdateItem.do?cmd=DEL&classNumber=" + n +"' />" ;
+		document.forms[0].action="<c:url value='/UpdateItem.do?cmd=DEL&classNumber=" + n +"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
 	} else {
 	
 	}
 }
-function modify(key, qty, newQty) {
-var newQty = $("#newQty").val();
-
+function modify(key, qty, index) {
+	var x = "newQty" + index;
+	var newQty = document.getElementById(x).value;
+	if  (newQty < 0 ) {
+		window.alert ('數量不能小於 0');
+		return ; 
+	}
+	if  (newQty == 0 ) {
+		window.alert ("請執行刪除功能來刪除此項商品");
+		document.getElementById(x).value = qty;
+		return ; 
+	}
+	if  (newQty == qty ) {
+		window.alert ("新、舊數量相同，不必修改");
+		return ; 
+	}
 	if (confirm("確定將此商品的數量由" + qty + " 改為 " + newQty + " ? ") ) {
-		window.location.href="<c:url value='/UpdateItem.do?cmd=MOD&classNumber=" + key + "&newQty=" + newQty +"' />" ;
+		document.forms[0].action="<c:url value='/UpdateItem.do?cmd=MOD&classNumber=" + key + "&newQty=" + newQty +"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
-	} 
+	} else {
+		document.getElementById(x).value = qty;
+	}
 }
 function isNumberKey(evt)
 {
@@ -94,6 +107,11 @@ function Abort() {
 	</c:choose>
 
 
+	<%-- 	         <span>購入商品總數量:${shoppingCart.getQty()}</span> --%>
+	<%--          <span>金額小計(OK):<c:out value="${shoppingCart.getSubtotal()}" default="0"/> 元</span> --%>
+	<%--          <span>金額小計(OK):<c:out value="${shoppingCart.getContent()}" default="0"/> 元</span> --%>
+	<%--               <a href="<c:url value='/abort.do' />" onClick="return Abort();">放棄購物</a> --%>
+	<!-- 	<header> -->
 	<h1>結帳總額</h1>
 	</header>
 	<table id="table_id" class="display">
@@ -113,31 +131,23 @@ function Abort() {
 					<td>${anEntry.value.description}</td>
 					<td><img height='100' width='80'
 						src="<c:url value='/controller/classImage?id=${anEntry.value.classNumber}' />"></td>
-					<td><Input id="newQty"
-						style="width: 28px; text-align: right" name="newQty" type="text"
-						value="${anEntry.value.quantity}" 
-						onkeypress="return isNumberKey(event)" />
-					</td>
+					<td>${anEntry.value.quantity}</td>
 					<td>${anEntry.value.unitPrice}</td>
 					<td>${anEntry.value.unitPrice*anEntry.value.quantity}</td>
 
-					<td><Input type="button" name="delete" value="刪除"
-						onclick="confirmDelete(${anEntry.key})"> 
-						
-						<Input
+					<td><Input type="submit" name="delete" value="刪除"
+						onclick="confirmDelete(${anEntry.key})"> <Input
 						type="button" name="update" value="修改"
-						onClick="modify(${anEntry.key},${anEntry.value.quantity},${newQty})">
-<!-- 						index是新的數量 -->
+						onclick="modify(${anEntry.key}, ${anEntry.value.quantity}, ${vs.index})">
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 
-		<td colspan='5' style='text-align: right; color: red;'>總計金額：${shoppingCart.getSubtotal() }</td>
+		<td colspan='5' style='text-align: right'>總計金額：${shoppingCart.getSubtotal() }</td>
 		<td colspan='5' style='text-align: right'><a
 			href="<c:url value='/class/OrderConfirm.jsp' />"
-			onClick="return Checkout(${shoppingCart.getSubtotal()});">再次確認</a> <a
-			href="<c:url value='/abort.do' />" onClick="return Abort();">放棄購物?</a></td>
+			onClick="return Checkout(${shoppingCart.getSubtotal()});">再次確認</a></td>
 
 	</table>
 

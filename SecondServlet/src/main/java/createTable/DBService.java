@@ -8,8 +8,6 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 import javax.crypto.BadPaddingException;
@@ -44,12 +42,6 @@ public class DBService {
 		is.read(b);
 		sb = new SerialBlob(b);
 		return sb;
-	}
-	
-	public String getToday() { // today  ${SYSTEM.todayO}
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		return sdf.format(new Date());
 	}
 	public static String extractFileName(String pathName) throws IOException, SQLException {
 		return pathName.substring(pathName.lastIndexOf("/") + 1);

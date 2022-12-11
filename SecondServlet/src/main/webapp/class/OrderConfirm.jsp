@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -28,34 +28,35 @@ table, h1 {
 }
 </style>
 <script type="text/javascript">
-function cancelOrder() {
-	if (confirm("確定取消此份訂單 ? ") ) {
-		// 接收此資料的Servlet會使用 finalDecision 參數的值
-		document.forms[0].finalDecision.value = "CANCEL";
-		document.forms[0].action="<c:url value='/_04_ShoppingCart/ProcessOrder.do' />";
-		document.forms[0].submit();
-		return;
-	} else {
-		return;
+	function cancelOrder() {
+		if (confirm("確定取消此份訂單 ? ")) {
+			// 接收此資料的Servlet會使用 finalDecision 參數的值
+			document.forms[0].finalDecision.value = "CANCEL";
+			document.forms[0].action = "<c:url value='/ProcessOrder.do' />";
+			document.forms[0].submit();
+			return;
+		} else {
+			return;
+		}
 	}
-}
-function reconfirmOrder() {
-	var sa = document.getElementById('customerEmail').value;
-	if  (sa === "") {
-		window.alert ('email不能是空白');
-		return ; 
+	function reconfirmOrder() {
+		var sa = $("#customerEmail").val();
+		if (sa === "") {
+			window.alert('email不能是空白');
+			return;
+		}
+		if (confirm("確定送出此份訂單 ? ")) {
+			// 接收此資料的Servlet會使用 finalDecision 參數的值
+			document.forms[0].finalDecision.value = "ORDER";
+			document.forms[0].action = "<c:url value='/ProcessOrder.do' />";
+			document.forms[0].method = "POST";
+			document.forms[0].submit();
+			return;
+		} else {
+			return;
+		}
 	}
-	if (confirm("確定送出此份訂單 ? ") ) {
-		// 接收此資料的Servlet會使用 finalDecision 參數的值
-		document.forms[0].finalDecision.value = "ORDER";
-		document.forms[0].action="<c:url value='/_04_ShoppingCart/ProcessOrder.do' />";
-		document.forms[0].method="POST";
-		document.forms[0].submit();
-		return;
-	} else {
-		return;
-	}
-}
+	
 </script>
 </head>
 
@@ -67,89 +68,75 @@ function reconfirmOrder() {
 	</header>
 
 	<h1>請確認以下信息</h1>
-<FORM  action="<c:url value='/_04_ShoppingCart/ProcessOrder.do' />" method="POST" >
+	<FORM action="<c:url value='/ProcessOrder.do' />" method="POST">
 
-	<table id="table_id" class="display">
-		<thead>
+		<table id="table_id" class="display">
+			<thead>
 				<tr>
-				<th>會員編號：</th>
-				<th>客戶帳號：</th>
-				<th>訂單日期：</th>
-				<th>會員信箱:</th>
-				<th>會員電話:</th>
-				<th>訂單狀態:</th>
-			</tr>
-		</thead>
-		<tbody>
-	
-	
-		<tr>
-			<td>${LoginOK.memberId}</td>
-			<td>${LoginOK.memberAccount}</td>
-			<td>${SYSTEM.today}</td>
-			<td>${customerEmail}<Input type="text" name="customerEmail"
-				value="${customerEmail}"></td>
-			<td>${customerPhone}<Input type="text" name="customerPhone"
-				value="${customerPhone}"></td>
-			<td>${orderStatus}<Input type="text" name="orderStatus"
-				value="${orderStatus}"></td>
-		</tr>
-	</tbody>
-<!-- 	</table> -->
-
-
-
-
-
-
-<!-- 	<table id="table_id" class="display"> -->
-		<thead>
-			<tr>
-				<th>課程名稱</th>
-				<th>課程圖片</th>
-				<th>課程數量</th>
-				<th>課程價錢</th>
-				<th>課程金額</th>
-				<th>請再次確認</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="anEntry" items="${shoppingCart.getContent()}">
-				<tr>
-					<td>${anEntry.value.description}</td>
-					<td><img height='100' width='80'
-						src="<c:url value='/controller/classImage?id=${anEntry.value.classNumber}' />"></td>
-					<td>${anEntry.value.quantity}</td>
-					<td>${anEntry.value.unitPrice}</td>
-					<td>${anEntry.value.unitPrice*anEntry.value.quantity}</td>
-
-					<td><Input type="submit" name="delete" value="刪除"
-						onclick="confirmDelete(${anEntry.key})"> <Input
-						type="button" name="update" value="修改"
-						onclick="modify(${anEntry.key}, ${anEntry.value.quantity}, ${vs.index})">
-					</td>
+					<th>會員編號：</th>
+					<th>客戶帳號：</th>
+					<th>訂單日期：</th>
+					<th>會員信箱:</th>
+					<th>會員電話:</th>
+					<th>訂單狀態:</th>
 				</tr>
-			</c:forEach>
-		</tbody>
+			</thead>
+			<tbody>
+				<tr>
+					<td>${LoginOK.memberId}</td>
+					<td>${LoginOK.memberAccount}</td>
+					<td><Input type="date" name="today"
+						value="${today}" required></td>
+					<td><Input type="email" name="customerEmail"
+						value="${customerEmail}" required></td>
+					<td><Input type="text" name="customerPhone"
+						value="${customerPhone}" required></td>
+					<td><Input type="text" name="orderStatus"
+						value="${orderStatus}" required></td>
+				</tr>
+			</tbody>
 
-		<td colspan='5' style='text-align: right'>總計金額：${shoppingCart.getSubtotal() }</td>
-	<div>	
-</div style="float:center">
-	</table>
-   <div><input type="hidden" name="finalDecision"  value="">   
-   <input type="button" name="CancelBtn" value="取消訂單" onclick="cancelOrder();">
-   <input type="button" name="OrderBtn"  value="確定送出" onclick="reconfirmOrder();">
-</div>
-</FORM>
+			<thead>
+				<tr>
+					<th>課程名稱</th>
+					<th>課程圖片</th>
+					<th>課程數量</th>
+					<th>課程價錢</th>
+					<th>課程金額</th>
+					<th>請再次確認</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="anEntry" items="${shoppingCart.getContent()}">
+					<tr>
+						<td>${anEntry.value.description}</td>
+						<td><img height='100' width='80'
+							src="<c:url value='/controller/classImage?id=${anEntry.value.classNumber}' />"></td>
+						<td>${anEntry.value.quantity}</td>
+						<td>${anEntry.value.unitPrice}</td>
+						<td>${anEntry.value.unitPrice*anEntry.value.quantity}</td>
+
+						<td><input type="hidden" name="finalDecision" value="">
+							<input type="button" name="CancelBtn" value="取消訂單"
+							onclick="cancelOrder();"> <input type="button"
+							name="OrderBtn" value="確定送出" onclick="reconfirmOrder();">
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			<td colspan='5' style='text-align: right'>總計金額：${shoppingCart.getSubtotal() }</td>
+
+			<div></div style="float:center">
+
+		</table>
+	</FORM>
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script
 		src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 	<script>
-		
 		$(document).ready(function() {
 			$('#table_id').DataTable();
 		});
-		
 	</script>
 </body>
 

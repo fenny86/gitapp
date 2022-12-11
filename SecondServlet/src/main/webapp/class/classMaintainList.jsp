@@ -23,6 +23,7 @@ table,h1,div{
 </head>
 
 <body>
+<c:set var="funcName" value="BMT" scope="session" />
 <jsp:include page="/fragment/topMVC.jsp" />
 	<header>
 		<h1>課程列表</h1>

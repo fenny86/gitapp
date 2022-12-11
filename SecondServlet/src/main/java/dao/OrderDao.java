@@ -13,5 +13,4 @@ public interface OrderDao {
 	//利用會員id找出會員的訂單
 	List<OrderBean> findByMemberId(int memberId);
 	
-	void persistOrder(OrderBean ob);
 }

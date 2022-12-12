@@ -46,7 +46,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public List<PeopleBean_23> selectAll() {
-		String sql = "select * from people";
+		String sql = "select * from people_23";
 		try {
 			List<PeopleBean_23> list = queryRunner.query(sql, new BeanListHandler<PeopleBean_23>(PeopleBean_23.class) {
 				public List<PeopleBean_23> handle(ResultSet rs) throws SQLException {
@@ -84,7 +84,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public PeopleBean_23 selectById(int id) {
-		String sql = "select * from people where userID =?";
+		String sql = "select * from people_23 where userID =?";
 		try {
 			PeopleBean_23 people = queryRunner.query(sql, new BeanHandler<PeopleBean_23>(PeopleBean_23.class) {
 				public PeopleBean_23 handle(ResultSet rs) throws SQLException {
@@ -119,7 +119,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public int delete(int id) {
-		String sql = "DELETE FROM people WHERE userID = ?";
+		String sql = "DELETE FROM people_23 WHERE userID = ?";
 
 		try {
 			int result = queryRunner.update(sql, id);
@@ -133,7 +133,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public int update(PeopleBean_23 bean) {
-		String sql = "update people set Name=?, userAge=?, sex=?, Address=?, person_img=?,"
+		String sql = "update people_23 set Name=?, userAge=?, sex=?, Address=?, person_img=?,"
 				+ " star_sign=?, emotion=?, Profession=?, personality=?, hobby=?,"
 				+ " dream=?, introduction=?, religion=?, income=?, sex_orientation=? where userID=?";
 
@@ -151,7 +151,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public void save(PeopleBean_23 bean) {
-		String sql = "insert into people" + "(userid, Name, userAge, sex, Address, person_img,"
+		String sql = "insert into people_23" + "(userid, Name, userAge, sex, Address, person_img,"
 				+ " star_sign, emotion, Profession, personality, hobby,"
 				+ " dream, introduction, religion, income, sex_orientation)"
 				+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -170,7 +170,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public void saveNoIncome(PeopleBean_23 bean) {
-		String sql = "insert into people" + "(userid, Name, userAge, sex, Address, person_img,"
+		String sql = "insert into people_23" + "(userid, Name, userAge, sex, Address, person_img,"
 				+ " star_sign, emotion, Profession, personality, hobby,"
 				+ " dream, introduction, religion,  sex_orientation)"
 				+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -187,7 +187,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 	}
 	
 	public void saveTest(PeopleBean_23 bean) {
-		String sql = "insert into people" + "(userid, Name, userAge, sex, Address)" + " values (?,?,?,?,?)";
+		String sql = "insert into people_23" + "(userid, Name, userAge, sex, Address)" + " values (?,?,?,?,?)";
 		try {
 			queryRunner.update(sql, bean.getUserID(), bean.getName(), bean.getAge(), bean.getSex(), bean.getAddress());
 		} catch (SQLException e) {
@@ -196,7 +196,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 	}
 
 	public PeopleBean_23 selectAge(int id) {
-		String sql = "select userAge from people where userId=?";
+		String sql = "select userAge from people_23 where userId=?";
 		try {
 			PeopleBean_23 classbean = queryRunner.query(sql, new BeanHandler<PeopleBean_23>(PeopleBean_23.class) {
 
@@ -217,7 +217,7 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public PeopleBean_23 findImageById(int Id) {
-		String sql = "select person_img from people where userId=?";
+		String sql = "select person_img from people_23 where userId=?";
 		try {
 			PeopleBean_23 classbean = queryRunner.query(sql, new BeanHandler<PeopleBean_23>(PeopleBean_23.class) {
 
@@ -237,8 +237,8 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 	}
 
 	public List<PeopleBean_23> selectByIdOrName(int id, String name) {
-		String sql = "select * from people where name like ?";
-		String sql2 = "select * from people where userId=?";
+		String sql = "select * from people_23 where name like ?";
+		String sql2 = "select * from people_23 where userId=?";
 		try {
 			List<PeopleBean_23> listName = queryRunner.query(sql, new BeanListHandler<PeopleBean_23>(PeopleBean_23.class) {
 				public List<PeopleBean_23> handle(ResultSet rs) throws SQLException {

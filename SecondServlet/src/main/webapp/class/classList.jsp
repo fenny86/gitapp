@@ -35,8 +35,8 @@ table,h1{
    </c:otherwise>
 </c:choose>
 
-         <span>購入商品總數量:${shoppingCart.getQty()}</span>
-         <span>金額小計(OK):<c:out value="${shoppingCart.getSubtotal()}" default="0"/> 元</span>
+         <span style="float:right;color:red"> 金額小計(OK): <c:out value="${shoppingCart.getSubtotal()}" default="0"/> 元</br>
+         購入商品總數量:${shoppingCart.getQty()} </span>
 	
 	
 	

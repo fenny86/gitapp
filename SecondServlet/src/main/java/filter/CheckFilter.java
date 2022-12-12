@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.EmpManager;
+import bean.AccountManager;
 @WebFilter(value = "*.safe")
 public class CheckFilter implements Filter{
 
@@ -23,7 +23,7 @@ public class CheckFilter implements Filter{
 		HttpServletResponse res=(HttpServletResponse)response;
 		
 		HttpSession session=req.getSession();
-		EmpManager emp=(EmpManager) session.getAttribute("manager");
+		AccountManager emp=(AccountManager) session.getAttribute("manager");
 		if(emp!=null) {
 			chain.doFilter(req, res);
 		}else {

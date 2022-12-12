@@ -36,7 +36,7 @@
 		</table>
 		<p>
 		<hr>
-		<a href="<c:url value='/EEIT56_23/index_23.jsp' />">回首頁</a>
+		<a href="<c:url value='/EEIT56_23/UserSelect.jsp' />">回首頁</a>
 	</div>
 </body>
 </html>

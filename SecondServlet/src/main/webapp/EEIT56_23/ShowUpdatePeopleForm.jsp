@@ -32,7 +32,7 @@
 				<tr bgcolor='tan'>
 					<td width="120" height="40">年齡:</td>
 					<td width="600" height="40" align="left"><input name="age"
-						type="text" size="20" value='${bean.age}'></td>
+						type="text" size="20" value='${bean.age}' id="userage" onblur="getNameId()"></td>
 				</tr>
 				<tr bgcolor='tan'>
 					<td width="120" height="40">性別:</td>
@@ -125,11 +125,22 @@
 				<tr bgcolor='tan'>
 					<td height="50" colspan="2" align="center"><input
 						type="submit" value="送出"> <input type="reset" value="清除"><a
-						href='<c:url value="/EEIT56_23/index_23.jsp" />'>回首頁</a></td>
+						href='<c:url value="/EEIT56_23/UserSelect.jsp" />'>回首頁</a></td>
 				</tr>
 			</tbody>
 		</table>
 		<div style="color: #FF0000; display: inline">${ErrorMsg.exception}</div>
 	</form>
+	
+	
+<script>
+function getNameId(){
+
+	if(isNaN(document.getElementById("userage").value)){
+		 alert("請輸入年齡")
+	}
+}
+
+</script>
 </body>
 </html>

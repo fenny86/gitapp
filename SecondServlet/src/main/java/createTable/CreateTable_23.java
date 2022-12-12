@@ -16,7 +16,7 @@ public class CreateTable_23 {
 				+ " userAge　int not null, " 
 				+ " Name    	varchar(50) not null, " 
 				+ " sex varchar(10) not null, " 
-				+ " Address varchar(50) not null, " 
+				+ " Address varchar(50) , " 
 				+ " person_img    varbinary(MAX), " 
 				+ " star_sign varchar(50), " 
 				+ " emotion varchar(100), " 

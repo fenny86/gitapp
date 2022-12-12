@@ -14,9 +14,13 @@ form {
 </style>
 </head>
 <body>
-
+<div align="RIGHT">
+<!--  ShowAllPeopleServlet  -->
+<a href='<c:url value="/showPeople.do" />'>查詢資料(後臺用)</a>
+<a href='<c:url value="/EEIT56_23/InsertPeopleForm_23.jsp" />' >新增資料</a>
+</div>
 	<form action="<c:url value='/userSelectControllersafe' />" method="POST">
-		<table>
+		<table >
 			<tr>
 				<th colspan='2' align="center">
 					<h1>搜尋</h1>
@@ -35,6 +39,8 @@ form {
 
 
 	</form>
+	
+	
 
 </body>
 </html>

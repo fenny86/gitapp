@@ -14,6 +14,11 @@ form {
 </style>
 </head>
 <body>
+<div align="RIGHT">
+<!--  ShowAllPeopleServlet  -->
+<a href='<c:url value="/showPeople.do" />'>查詢資料(後臺用)</a>
+<a href='<c:url value="/EEIT56_23/InsertPeopleForm_23.jsp" />' >新增資料</a>
+</div>
 <div>
 <form action="<c:url value='/userSelectControllersafe' />" method="POST">
 		<table>
@@ -59,7 +64,9 @@ form {
 		</table>
 		<p>
 		<hr>
-		<a href="<c:url value='/EEIT56_23/index_23.jsp' />">回首頁</a>
+		<a
+						href="javascript:history.back()">回上頁</a>
+		<a href="<c:url value='/EEIT56_23/UserSelect.jsp' />">回首頁</a>
 	</div>
 </body>
 </html>

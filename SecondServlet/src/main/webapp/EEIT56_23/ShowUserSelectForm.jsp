@@ -91,7 +91,7 @@ form {
 				<tr bgcolor='tan'>
 					<td height="50" colspan="4" align="center"><a
 						href="javascript:history.back()">回上頁</a>
-					<a href='<c:url value="/EEIT56_23/index_23.jsp" />'>回首頁</a></td>
+					<a href='<c:url value="/EEIT56_23/UserSelect.jsp" />'>回首頁</a></td>
 				</tr>
 			</tbody>
 		</table>

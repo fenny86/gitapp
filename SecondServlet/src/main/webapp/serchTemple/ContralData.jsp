@@ -24,80 +24,80 @@ form {
 		<table border="1">
 <c:forEach var="tmp" items="${tmp}" >
 			<thead>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<th height="60" colspan="2" align="center" ><h2>查詢結果</h2></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">編號:</td>
 					<td width="600" height="40" align="left"><input id='templeId' value="${tmp.templeId}"
 						style="text-align: left" name="templeId" type="text" size="14">
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">寺廟名稱:</td>
 					<td width="600" height="40" align="left"><input id='templeName' value= "${tmp.templeName}"
 						style="text-align: left" name="templeName" type="text" size="14">
 					</td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">主祀神:</td>
 					<td width="600" height="40" align="left"><input name="deitiesName" value= "${tmp.deitiesName}"
 						type="text" size="20"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">行政區:</td>
 					<td width="600" height="40" align="left"><input name="administrative" value= "${tmp.administrative}"
 						type="text" size="20"></td>
 				</tr>
 				
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">地址:</td>
 					<td width="600" height="40" align="left"><input name="address" value= "${tmp.address}"
 						type="text" size="20"></td>
 				</tr>
 
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">登記別:</td>
 					<td width="600" height="40" align="left"><input name="register" value= "${tmp.register}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">教別:</td>
 					<td width="600" height="40" align="left"><input name="sect" value= "${tmp.sect}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">電話:</td>
 					<td width="600" height="40" align="left"><input name="phone" value= "${tmp.phone}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">負責人:</td>
 					<td width="600" height="40" align="left"><input name="principal" value= "${tmp.principal}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">其他:</td>
 					<td width="600" height="40" align="left"><input name="other" value= "${tmp.other}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">X座標:</td>
 					<td width="600" height="40" align="left"><input name="wGS84X" value= "${tmp.WGS84X}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">Y座標:</td> 
 					<td width="600" height="40" align="left"><input name="wGS84Y" value= "${tmp.WGS84Y}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td width="120" height="40">統一編號:</td>
 					<td width="600" height="40" align="left"><input name="uniformnumbers" value= "${tmp.uniformnumbers}"
 						type="text" size="14"></td>
 				</tr>
-				<tr bgcolor='tan'>
+				<tr bgcolor='lightblue'>
 					<td height="50" colspan="2" align="center">
 						<input value= "更改" type="submit" formaction="UpdateTempleData.do">
 						<input value= "新增" type="submit" formaction="InsertTempleData.do">

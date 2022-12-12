@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import SerchTemple06.dao.TmpRoomDao;
 import bean.report;
-import dao.TmpRoomDao;
 
 @WebServlet("/SelectTempleRoom.do")
 public class SelectTempleRoom extends HttpServlet {

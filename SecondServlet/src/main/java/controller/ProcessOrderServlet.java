@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import bean.MemberBean;
 import bean.OrderBean;
 import bean.OrderItemBean;
+import createTable.DBService;
 import dao.OrderDao;
 import dao.ShoppingCart;
 import impl.OrderDaoImpl;
@@ -70,13 +71,14 @@ public class ProcessOrderServlet extends HttpServlet {
 		double totalAmount = Math.round(shoppingCart.getSubtotal() * 1);  	// 計算訂單總金額 
 		String customerEmail = request.getParameter("customerEmail");  // 出貨地址
 		String customerPhoneStr = request.getParameter("customerPhone");
-		int customerPhone = Integer.parseInt(customerPhoneStr.trim());
 		String orderStatus = request.getParameter("orderStatus");	// 發票的抬頭
-		Date today = new Date();   									// 新增訂單的時間
-		// 新建訂單物件。OrderBean:封裝一筆訂單資料的容器，包含訂單主檔與訂單明細檔的資料。目前只存放訂單主檔的資料。
-		OrderBean orderBean = new OrderBean(0, memberId, customerEmail, customerPhone, 
-				orderStatus, today, totalAmount);
 		
+		Date today = new Date();
+		DBService dbService = new DBService();
+		// 新建訂單物件。OrderBean:封裝一筆訂單資料的容器，包含訂單主檔與訂單明細檔的資料。目前只存放訂單主檔的資料。
+		OrderBean orderBean = new OrderBean(0, memberId, customerEmail, customerPhoneStr, 
+				orderStatus,today , totalAmount);
+		System.out.println(orderBean.toString());
 		// 取出存放在購物車內的商品，放入Map型態的變數cart，準備將其內的商品一個一個轉換為OrderItemBean，
 		
 		Map<Integer, OrderItemBean> content = shoppingCart.getContent();
@@ -92,11 +94,11 @@ public class ProcessOrderServlet extends HttpServlet {
 		
 		try {
 			log.info("處理訂單之Controller: orderBean=" + orderBean);
-			OrderDao orderDao = new OrderDaoImpl();
-			orderDao.persistOrder(orderBean);
-			session.removeAttribute("ShoppingCart");
+			OrderDao orderDao = (OrderDao) new OrderDaoImpl();
+			orderDao.save(orderBean);
+			session.removeAttribute("shoppingCart");
 			response.sendRedirect(response.encodeRedirectURL (
-									contextPath + "/ThanksForOrdering.jsp"));
+									contextPath + "/index.html"));
 			log.info("處理訂單之Controller: 處理訂單已正常結束");
 			return;
 		} catch(RuntimeException ex){
@@ -109,7 +111,7 @@ public class ProcessOrderServlet extends HttpServlet {
 			session.setAttribute("OrderErrorMessage", "處理訂單時發生異常: " + 
 										shortMsg  + "，請調正訂單內容" );
 			response.sendRedirect(response.encodeRedirectURL (
-					                 contextPath + "/_04_ShoppingCart/ShowCartContent.jsp"));
+					                 contextPath + "/class/ShowShoppingCartContent.jsp"));
 			return;
 		}
 	}

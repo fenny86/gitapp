@@ -3,8 +3,8 @@ package service;
 import java.sql.SQLException;
 import java.util.List;
 
+import SerchTemple06.dao.TempleDao;
 import bean.templeBean;
-import dao.TempleDao;
 
 public class TempleService { 
 	TempleDao tmpDao = new TempleDao();

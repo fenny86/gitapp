@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>查詢</title>
+
     <style>
         #map {
             height: 600px;
@@ -19,7 +19,7 @@
  <br>
 <hr>
 <form action="<c:url value='/FindTemple' />" method="POST">
-    <table>
+	<table id="table_id" class="display">
          <tr>
              <td align="RIGHT">編號：</td>
              <td align="LEFT"><input	type="text" name="templeId" value="123" size="20"></td>
@@ -36,5 +36,6 @@
 </form>
 <p/>
 </div>
+
 </body>
 </html>

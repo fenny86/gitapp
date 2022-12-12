@@ -12,9 +12,17 @@
 	<tr height="48px">
 
 		<div style="display: inline">
-			<span> <a class="fa-solid fa-wrench"
-				href="<c:url value='/controller/classListMaintainServlet' />">
-					維護</a></span>
+			<c:choose>
+
+				<c:when test="${ funcName != 'BMT' }">
+					<span> <a class="fa-solid fa-wrench"
+						href="<c:url value='/controller/classListMaintainServlet' />">
+							維護</a>
+				</c:when>
+				<c:otherwise>
+                      維護
+                </c:otherwise>
+			</c:choose>
 		</div>
 
 		<div style="display: inline">
@@ -70,4 +78,3 @@
 	</tr>
 </table>
 <hr>
-

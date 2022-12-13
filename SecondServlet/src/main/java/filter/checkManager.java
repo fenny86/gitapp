@@ -34,5 +34,4 @@ public class checkManager implements Filter{
 			res.sendRedirect(req.getContextPath()+"/loginTest.jsp");
 		}
 	}
-
 }

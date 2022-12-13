@@ -26,7 +26,7 @@ table, h1 {
 
 <body>
 
-	<jsp:include page="/fragment/topMVC.jsp" />
+	<jsp:include page="/fragment/topMVC1.jsp" />
 	<center>
 	
 		<c:choose>

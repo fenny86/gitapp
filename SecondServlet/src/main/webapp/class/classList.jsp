@@ -22,7 +22,7 @@ table,h1{
 
 <body>
 <c:set var="funcName" value="SHO" scope="session"/>
-<jsp:include page="/fragment/topMVC.jsp" />
+<jsp:include page="/fragment/topMVC1.jsp" />
 
 <c:choose>
    <c:when test="${shoppingCart.itemNumber > 0}">

@@ -25,8 +25,6 @@ public class ShowAccountController extends HttpServlet {
 		Account account=accountService.showAccount(id);
 		
 		req.setAttribute("account", account);
-//		req.getRequestDispatcher("/showUpdateAccountInfoJSPsafe").forward(req, resp);
-//		req.getRequestDispatcher("/updateAccount.jsp").forward(req, resp);
 		req.getRequestDispatcher("/showAllAccounts.jsp").forward(req, resp);
 	}
 	@Override

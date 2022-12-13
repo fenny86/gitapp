@@ -29,6 +29,7 @@
             <input type="submit" value="提交">
             <input    type="button"    name="Button"    value="新增"    
             onClick="location='InsertTempleData.jsp'">
+            <a style="position: absolute; right: 30;" class="fa-solid fa-user-plus" href="http://localhost:8080/SecondServlet/index.html">首頁</a>
             
              </td>
             </tr>

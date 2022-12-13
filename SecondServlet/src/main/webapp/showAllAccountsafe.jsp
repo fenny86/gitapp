@@ -31,6 +31,7 @@
 <%--     <jsp:include page="/fragment/topMVC.jsp" /> --%>
     <header>
         <h1 class="fa-solid fa-users">查詢所有會員</h1><a style="position: absolute; right: 0;" class="fa-solid fa-user-plus" href=${request.getContextPath()}addAccountControllersafe?id=${accounts.get(accounts.size()-1).getId()+1}>新增</a>
+<a style="position: relative; right: 15;" class="fa-solid fa-house" href="http://localhost:8080/SecondServlet/index.html">首頁</a>
     </header>
     <table id="table_id" class="display">
         <thead>
@@ -43,7 +44,7 @@
           		<th><span class="fa-solid fa-key">會員密碼</span></th>
 <!--                 <th>會員圖片</th> -->
                 <th><span class="fa-solid fa-image">會員圖片</span></th>
-                <th colspan="2"><span class="fa-solid fa-pen-to-square">操作</span></th>
+                <th><span class="fa-solid fa-pen-to-square">操作</span></th>
             </tr>
         </thead>
         <tbody>
@@ -55,8 +56,8 @@
                     <td><img height='100' width='80' src="<c:url value='/controller/toImage?id=${bean.id}' />">
                     </td>
 <!--                     <td><a class="fa-regular fa-trash-can" href=${request.getContextPath()}removeAccountControllersafe?id=${bean.id}>刪除</a></td> -->
-                    <td><a class="fa-solid fa-screwdriver-wrench" href=${request.getContextPath()}showAccountControllersafe?id=${bean.id}>修改</a></td>
-                    <td><a class="fa-solid fa-trash-can" href=${request.getContextPath()}removeAccountControllersafe?id=${bean.id}>刪除</a></td>
+                    <td><a class="fa-solid fa-screwdriver-wrench" href=${request.getContextPath()}showAccountControllersafe?id=${bean.id}>修改</a>&nbsp
+                    <a class="fa-solid fa-trash-can" href=${request.getContextPath()}removeAccountControllersafe?id=${bean.id}>刪除</a></td>
                 </tr>
             </c:forEach>
         </tbody>

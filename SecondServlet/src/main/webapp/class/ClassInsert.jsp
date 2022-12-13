@@ -26,7 +26,7 @@ table, h1 {
 </head>
 
 <body>
-	<jsp:include page="/fragment/topMVC.jsp" />
+	<jsp:include page="/fragment/topMVC1.jsp" />
 	<center>
 
 		<form id="form1" name="form1" method="post"

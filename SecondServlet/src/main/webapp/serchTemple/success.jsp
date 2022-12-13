@@ -8,7 +8,7 @@
 <title>成功</title>
 </head>
 <body>
-<h3><font color='black'>反正就是成功了</font></h3>
+<h3><font color='black'>成功了</font></h3>
 <script> window.setInterval("location='./serchTemple/NewFile.jsp'",3000); </script>
 </body>
 </html>

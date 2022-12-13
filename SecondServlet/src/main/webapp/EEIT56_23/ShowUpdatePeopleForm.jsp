@@ -34,14 +34,7 @@
 					<td width="600" height="40" align="left"><input name="age"
 						type="text" size="20" value='${bean.age}' id="userage" onblur="getNameId()"></td>
 				</tr>
-				<tr bgcolor='tan'>
-					<td width="120" height="40">性別:</td>
-					<td width="600" height="40" align="left"><input type="radio"
-						name="gender" value="male" id="m1" required> <label
-						for="m1">男</label> <label> <input type="radio"
-							name="gender" value="female" id="">女
-					</label></td>
-				</tr>
+				
 				<tr bgcolor='tan'>
 					<td width="120" height="40">地址:</td>
 					<td width="600" height="40" align="left"><input name="address"

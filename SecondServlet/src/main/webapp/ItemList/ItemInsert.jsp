@@ -17,15 +17,15 @@
 
 <form  id="form1" name="form1" method="post" 
        action="ItemInsert.do"  enctype="multipart/form-data" >
-        		<input name="Pd_name" class='InputClass' type="text" id="title" 
-               size="50" />
-              <input name="Pd_description" class='InputClass' type="text" id="title" 
-                size="50" />
-               <input name="Pd_price" class='InputClass' type="text" id="title" 
-               size="50" />
-               <input name="Pd_qty" class='InputClass' type="text" id="title" 
-               size="50" />
-               <input name="Pd_image" class='InputClass' type="file" id="title" 
+        		商品名稱:<input name="Pd_name" class='InputClass' type="text" id="title" 
+               size="50" /><br>
+               商品描述:<input name="Pd_description" class='InputClass' type="text" id="title" 
+                size="50" /><br>
+               商品價格:<input name="Pd_price" class='InputClass' type="text" id="title" 
+               size="50" /><br>
+               商品存貨:<input name="Pd_qty" class='InputClass' type="text" id="title" 
+               size="50" /><br>
+               商品圖片:<input name="Pd_image" class='InputClass' type="file" id="title" 
                 size="50" />
               
               

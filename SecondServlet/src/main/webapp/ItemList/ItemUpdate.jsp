@@ -17,15 +17,15 @@
 
 <form  id="form1" name="form1" method="post" 
        action="ItemUpdate.do"  enctype="multipart/form-data" >
-        		<input name="Pd_name" class='InputClass' type="text" id="title" 
-               value="${Item.getPd_name()}" size="50" />
-              <input name="Pd_description" class='InputClass' type="text" id="title" 
-               value="${Item.getPd_description()}" size="50" />
-               <input name="Pd_price" class='InputClass' type="text" id="title" 
-               value="${Item.getPd_price()}" size="50" />
-               <input name="Pd_qty" class='InputClass' type="text" id="title" 
-               value="${Item.getPd_qty()}" size="50" />
-               <input name="Pd_image" class='InputClass' type="file" id="title" 
+        		更改名稱:<input name="Pd_name" class='InputClass' type="text" id="title" 
+               value="${Item.getPd_name()}" size="50" /><br>
+              更改描述:<input name="Pd_description" class='InputClass' type="text" id="title" 
+               value="${Item.getPd_description()}" size="50" /><br>
+               更改價格:<input name="Pd_price" class='InputClass' type="text" id="title" 
+               value="${Item.getPd_price()}" size="50" /><br>
+               更改存貨:<input name="Pd_qty" class='InputClass' type="text" id="title" 
+               value="${Item.getPd_qty()}" size="50" /><br>
+               更改圖片:<input name="Pd_image" class='InputClass' type="file" id="title" 
                 size="50" />
                
                

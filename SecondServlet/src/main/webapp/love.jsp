@@ -42,7 +42,7 @@
    <th scope="row">${active.activeID}</th>
       <td>${active.activeName}</td>
       <td><img height='100' width='80' src="<c:url  value='/toImage?id=${active.activeID}'/>"></td>
-      <td>${active.activeDescription}</td>
+      <td><textarea style="height: 50px;" name="" id="" cols="30" rows="10">${active.activeDescription}</textarea></td>
       <td>${active.activeStartDate}</td>
       <td>${active.activeEndDate}</td>
       <td>${active.activeLocation}</td>
@@ -51,7 +51,7 @@
 	<a href="<c:url context='${pageContext.request.contextPath}' value='/showActiveController?id=${active.activeID}'></c:url>">修改</a></td>
         </tr>
          </c:forEach>
-         <input type="button" value="新增" onclick="location.href='/Temple/addViewInfo.jsp'">
+         <input type="button" value="新增" onclick="location.href='http://localhost:8080/SecondServlet/addViewInfo.jsp'">
       </tbody>
     </table>
   </div>

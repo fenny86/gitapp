@@ -45,7 +45,8 @@ public class UpdatePeopleController extends HttpServlet {
 			Blob image = GlobalService.fileToBlob(in, size);
 			PeopleBean_23 pb = peopleDao.selectById(id);
 			
-			if(size!=0 && type.equals("image/jpeg")) {
+			System.out.println(type);
+			if(size!=0 && (type.equals("image/jpeg")||type.equals("image/png"))) {
 				pb.setImages(image);
 			}
 			

@@ -132,12 +132,12 @@ public class PeopleDaoImpl_23 implements PeopleDao_23 {
 
 	@Override
 	public int update(PeopleBean_23 bean) {
-		String sql = "update people_23 set Name=?, userAge=?, sex=?, Address=?, person_img=?,"
+		String sql = "update people_23 set Name=?, userAge=?, Address=?, person_img=?,"
 				+ " star_sign=?, emotion=?, Profession=?, personality=?, hobby=?,"
 				+ " dream=?, introduction=?, religion=?, income=?, sex_orientation=? where userID=?";
 
 		try {
-			int result = queryRunner.update(sql, bean.getName(), bean.getAge(), bean.getSex(), bean.getAddress(),
+			int result = queryRunner.update(sql, bean.getName(), bean.getAge(), bean.getAddress(),
 					bean.getImages(), bean.getStar(), bean.getEmotion(), bean.getProfession(), bean.getPersonality(),
 					bean.getHobby(), bean.getDream(), bean.getIntroduction(), bean.getReligion(), bean.getIncome(),
 					bean.getSex_in(), bean.getUserID());

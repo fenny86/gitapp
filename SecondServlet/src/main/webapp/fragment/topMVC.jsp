@@ -22,7 +22,7 @@
 					<td class='menuData'>
 						<div class='menu'>
 
-
+							<a href="<c:url value='/index.html' />"> 主頁</a><br>
 							<a href="<c:url value='/index.jsp' />"> 商品查詢頁面 </a>
 
 						</div>

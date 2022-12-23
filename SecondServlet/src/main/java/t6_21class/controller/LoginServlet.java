@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("LoginOK", memberBean);
 			response.sendRedirect(request.getContextPath()+"/controller/classShoppingList");
 		}else {
-			response.sendRedirect(request.getContextPath()+"/t6_21login.jsp");
+			response.sendRedirect(request.getContextPath()+"/login.jsp");
 		}
 			
 		}

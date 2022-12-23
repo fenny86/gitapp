@@ -28,7 +28,7 @@ import t6_21class.bean.MemberBean;
 @WebFilter(
 		urlPatterns = { "/*" }, 
 		initParams = { 
-				@WebInitParam(name = "mustLogin1", value = "/t6_21class/*"), 
+				@WebInitParam(name = "mustLogin1", value = "/class/*"), 
 		})
 public class LoginCheckingFilter implements Filter {
 	
